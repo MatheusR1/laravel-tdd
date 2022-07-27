@@ -10,6 +10,11 @@ class Group extends Model
 
     public function GroupCities()
     {
-        $this->hasMany(GroupCity::class);
+        return $this->hasMany(GroupCity::class);
+    }
+
+    public function Campaign()
+    {
+        return $this->hasOne(Campaign::class);
     }
 }
