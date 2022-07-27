@@ -1,10 +1,9 @@
 <?php
-
 namespace App\Http\Controllers;
 
-use App\Http\Requests\StoregroupRequest;
-use App\Http\Requests\UpdategroupRequest;
-use App\Models\group;
+use App\Http\Requests\StoreGroupRequest;
+use App\Http\Requests\UpdateGroupRequest;
+use App\Models\Group;
 
 class GroupController extends Controller
 {
@@ -31,10 +30,10 @@ class GroupController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \App\Http\Requests\StoregroupRequest  $request
+     * @param  \App\Http\Requests\StoreGroupRequest  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(StoregroupRequest $request)
+    public function store(StoreGroupRequest $request)
     {
         //
     }
@@ -42,10 +41,10 @@ class GroupController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\group  $group
+     * @param  \App\Models\Group  $Group
      * @return \Illuminate\Http\Response
      */
-    public function show(group $group)
+    public function show(Group $Group)
     {
         //
     }
@@ -53,10 +52,10 @@ class GroupController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\group  $group
+     * @param  \App\Models\Group  $Group
      * @return \Illuminate\Http\Response
      */
-    public function edit(group $group)
+    public function edit(Group $Group)
     {
         //
     }
@@ -64,11 +63,11 @@ class GroupController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \App\Http\Requests\UpdategroupRequest  $request
-     * @param  \App\Models\group  $group
+     * @param  \App\Http\Requests\UpdateGroupRequest  $request
+     * @param  \App\Models\Group  $Group
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdategroupRequest $request, group $group)
+    public function update(UpdateGroupRequest $request, Group $Group)
     {
         //
     }
@@ -76,10 +75,10 @@ class GroupController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\group  $group
+     * @param  \App\Models\Group  $Group
      * @return \Illuminate\Http\Response
      */
-    public function destroy(group $group)
+    public function destroy(Group $Group)
     {
         //
     }

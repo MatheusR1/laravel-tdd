@@ -1,5 +1,4 @@
 <?php
-
 namespace App\Policies;
 
 use App\Models\GroupCity;
@@ -25,10 +24,10 @@ class GroupCityPolicy
      * Determine whether the user can view the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function view(User $user, GroupCity $groupCity)
+    public function view(User $user, GroupCity $GroupCity)
     {
         //
     }
@@ -48,10 +47,10 @@ class GroupCityPolicy
      * Determine whether the user can update the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function update(User $user, GroupCity $groupCity)
+    public function update(User $user, GroupCity $GroupCity)
     {
         //
     }
@@ -60,10 +59,10 @@ class GroupCityPolicy
      * Determine whether the user can delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function delete(User $user, GroupCity $groupCity)
+    public function delete(User $user, GroupCity $GroupCity)
     {
         //
     }
@@ -72,10 +71,10 @@ class GroupCityPolicy
      * Determine whether the user can restore the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function restore(User $user, GroupCity $groupCity)
+    public function restore(User $user, GroupCity $GroupCity)
     {
         //
     }
@@ -84,10 +83,10 @@ class GroupCityPolicy
      * Determine whether the user can permanently delete the model.
      *
      * @param  \App\Models\User  $user
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Auth\Access\Response|bool
      */
-    public function forceDelete(User $user, GroupCity $groupCity)
+    public function forceDelete(User $user, GroupCity $GroupCity)
     {
         //
     }

@@ -42,10 +42,10 @@ class GroupCityController extends Controller
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Http\Response
      */
-    public function show(GroupCity $groupCity)
+    public function show(GroupCity $GroupCity)
     {
         //
     }
@@ -53,10 +53,10 @@ class GroupCityController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Http\Response
      */
-    public function edit(GroupCity $groupCity)
+    public function edit(GroupCity $GroupCity)
     {
         //
     }
@@ -65,10 +65,10 @@ class GroupCityController extends Controller
      * Update the specified resource in storage.
      *
      * @param  \App\Http\Requests\UpdateGroupCityRequest  $request
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateGroupCityRequest $request, GroupCity $groupCity)
+    public function update(UpdateGroupCityRequest $request, GroupCity $GroupCity)
     {
         //
     }
@@ -76,10 +76,10 @@ class GroupCityController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\GroupCity  $groupCity
+     * @param  \App\Models\GroupCity  $GroupCity
      * @return \Illuminate\Http\Response
      */
-    public function destroy(GroupCity $groupCity)
+    public function destroy(GroupCity $GroupCity)
     {
         //
     }
