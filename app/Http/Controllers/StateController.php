@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreStateRequest;
 use App\Http\Requests\UpdateStateRequest;
 use App\Models\State;
+use Illuminate\Http\Response;
 
 class StateController extends Controller
 {
@@ -15,17 +15,10 @@ class StateController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json(
+            State::all(),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -36,7 +29,9 @@ class StateController extends Controller
      */
     public function store(StoreStateRequest $request)
     {
-        //
+        $state = new State($request->all());
+
+        return response()->json($state, Response::HTTP_CREATED);
     }
 
     /**
@@ -47,18 +42,10 @@ class StateController extends Controller
      */
     public function show(State $state)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\State  $state
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(State $state)
-    {
-        //
+        return response()->json(
+            $state,
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -70,7 +57,9 @@ class StateController extends Controller
      */
     public function update(UpdateStateRequest $request, State $state)
     {
-        //
+        $state = tap($state)->update($request->all());
+
+        return response()->json($state, Response::HTTP_OK);
     }
 
     /**
@@ -81,6 +70,8 @@ class StateController extends Controller
      */
     public function destroy(State $state)
     {
-        //
+        $status = $state->delete();
+
+        return response()->json($status, Response::HTTP_OK);
     }
 }
