@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Feature;
+namespace Tests\API\Feature;
 
 use App\Models\State;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -54,7 +54,7 @@ class StateCrudTest extends TestCase
     {
         State::factory(2)->create();
         $state = state::factory(1)->create()->first();
-                
+
         $data = [
             'name' => 'nova state',
             'uf' => $state->uf

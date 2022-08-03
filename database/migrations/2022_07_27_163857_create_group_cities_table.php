@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Campaign;
+use App\Models\City;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -12,8 +14,11 @@ return new class extends Migration {
      */
     public function up()
     {
-        Schema::create('Group_cities', function (Blueprint $table) {
+        Schema::create('group_cities', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->foreignIdFor(City::class);
+            $table->foreignIdFor(Campaign::class);
             $table->timestamps();
         });
     }
@@ -25,6 +30,6 @@ return new class extends Migration {
      */
     public function down()
     {
-        Schema::dropIfExists('Group_cities');
+        Schema::dropIfExists('group_cities');
     }
 };

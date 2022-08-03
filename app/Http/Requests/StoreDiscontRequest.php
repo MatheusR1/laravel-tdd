@@ -3,7 +3,7 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 
-class StoreGroupCityRequest extends FormRequest
+class StoreDiscontRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +23,8 @@ class StoreGroupCityRequest extends FormRequest
     public function rules()
     {
         return [
+            'percenty' => ['required', 'numeric', 'between:0,1'],
             'campaign_id' => 'required',
-            'city_id' => 'required',
         ];
     }
 }

@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreCampaignRequest;
 use App\Http\Requests\UpdateCampaignRequest;
 use App\Models\Campaign;
+use Illuminate\Http\Response;
 
 class CampaignController extends Controller
 {
@@ -15,17 +15,10 @@ class CampaignController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json(
+            Campaign::all(),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -36,7 +29,9 @@ class CampaignController extends Controller
      */
     public function store(StoreCampaignRequest $request)
     {
-        //
+        $campaign = new Campaign($request->all());
+
+        return response()->json($campaign, Response::HTTP_CREATED);
     }
 
     /**
@@ -47,18 +42,10 @@ class CampaignController extends Controller
      */
     public function show(Campaign $campaign)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Campaign  $campaign
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Campaign $campaign)
-    {
-        //
+        return response()->json(
+            $campaign,
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -70,7 +57,9 @@ class CampaignController extends Controller
      */
     public function update(UpdateCampaignRequest $request, Campaign $campaign)
     {
-        //
+        $campaign = tap($campaign)->update($request->all());
+
+        return response()->json($campaign, Response::HTTP_OK);
     }
 
     /**
@@ -81,6 +70,8 @@ class CampaignController extends Controller
      */
     public function destroy(Campaign $campaign)
     {
-        //
+        $status = $campaign->delete();
+
+        return response()->json($status, Response::HTTP_OK);
     }
 }

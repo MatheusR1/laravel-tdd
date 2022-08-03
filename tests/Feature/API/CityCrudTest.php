@@ -1,5 +1,5 @@
 <?php
-namespace Tests\Feature;
+namespace Tests\API\Feature;
 
 use App\Models\City;
 use App\Models\State;

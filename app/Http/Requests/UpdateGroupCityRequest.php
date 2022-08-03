@@ -12,7 +12,7 @@ class UpdateGroupCityRequest extends FormRequest
      */
     public function authorize()
     {
-        return false;
+        return true;
     }
 
     /**
@@ -23,7 +23,8 @@ class UpdateGroupCityRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'campaign_id' => 'required',
+            'city_id' => 'required',
         ];
     }
 }
