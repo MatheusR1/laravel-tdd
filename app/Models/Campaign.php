@@ -9,11 +9,11 @@ class Campaign extends Model
 {
     use HasFactory;
 
-    const CREATED_AT = NULL;
-    const UPDATED_AT = NULL;
+    const CREATED_AT = null;
+    const UPDATED_AT = null;
 
-    public function Group(): BelongsTo
+    public function discont() : BelongsTo
     {
-        return $this->belongsTo(Group::class);
+        return $this->belongsTo(Discont::class);
     }
 }

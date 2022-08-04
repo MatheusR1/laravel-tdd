@@ -17,3 +17,4 @@ Route::apiResource('/states', StateController::class);
 Route::apiResource('/campaigns', CampaignController::class);
 Route::apiResource('/disconts', DiscontController::class);
 Route::apiResource('/group_cities', GroupCityController::class);
+Route::apiResource('/products', ProductController::class);
