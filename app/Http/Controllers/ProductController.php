@@ -1,10 +1,10 @@
 <?php
-
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Product;
+use Illuminate\Http\Response;
 
 class ProductController extends Controller
 {
@@ -15,17 +15,10 @@ class ProductController extends Controller
      */
     public function index()
     {
-        //
-    }
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
+        return response()->json(
+            Product::all(),
+            Response::HTTP_OK
+        );
     }
 
     /**
@@ -36,7 +29,9 @@ class ProductController extends Controller
      */
     public function store(StoreProductRequest $request)
     {
-        //
+        $product = new Product($request->all());
+
+        return response()->json($product, Response::HTTP_CREATED);
     }
 
     /**
@@ -47,18 +42,7 @@ class ProductController extends Controller
      */
     public function show(Product $product)
     {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Product  $product
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Product $product)
-    {
-        //
+        return response()->json($product, Response::HTTP_OK);
     }
 
     /**
@@ -70,7 +54,9 @@ class ProductController extends Controller
      */
     public function update(UpdateProductRequest $request, Product $product)
     {
-        //
+        $product = tap($product)->update($request->all());
+
+        return response()->json($product, Response::HTTP_OK);
     }
 
     /**
@@ -81,6 +67,8 @@ class ProductController extends Controller
      */
     public function destroy(Product $product)
     {
-        //
+        $products = $product->delete();
+
+        return response()->json($products, Response::HTTP_OK);
     }
 }

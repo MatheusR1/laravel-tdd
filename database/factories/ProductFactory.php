@@ -1,6 +1,7 @@
 <?php
 namespace Database\Factories;
 
+use App\Models\GroupCity;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -18,7 +19,8 @@ class ProductFactory extends Factory
         return [
             'name' => $this->faker->name,
             'price' => $this->faker->randomDigit(),
-            'description' => $this->faker->sentence()
+            'description' => $this->faker->sentence(),
+            'id_group_cities' => $this->faker->randomElement(GroupCity::pluck('id'))
         ];
     }
 }
