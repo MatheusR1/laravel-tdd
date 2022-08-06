@@ -5,10 +5,12 @@ use App\Models\City;
 use App\Models\Campaign;
 use App\Models\GroupCity;
 use App\Models\State;
+use App\Models\User;
 use COM;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class GroupCityCrudTest extends TestCase
@@ -22,6 +24,10 @@ class GroupCityCrudTest extends TestCase
      */
     public function test_get_all_group_cities(): void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         Campaign::factory(3)->create();
         State::factory(3)->create();
         City::factory(3)->create();
@@ -39,6 +45,10 @@ class GroupCityCrudTest extends TestCase
      */
     public function test_create_city() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         State::factory(3)->create();
 
         $campaign = Campaign::factory(1)->create()->first();
@@ -64,6 +74,10 @@ class GroupCityCrudTest extends TestCase
      */
     public function test_update_city() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         State::factory(3)->create();
 
         $campaigns = Campaign::factory(2)->create();
@@ -96,6 +110,10 @@ class GroupCityCrudTest extends TestCase
      */
     public function test_show_city() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         State::factory(1)->create();
         Campaign::factory(1)->create();
         City::factory(1)->create()->first();
@@ -114,6 +132,10 @@ class GroupCityCrudTest extends TestCase
      */
     public function test_delete_city() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         State::factory(1)->create();
         Campaign::factory(1)->create();
         City::factory(1)->create();

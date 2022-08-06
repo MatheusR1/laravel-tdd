@@ -2,9 +2,11 @@
 namespace Tests\API\Feature;
 
 use App\Models\Campaign;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class CampaignCrudTest extends TestCase
@@ -18,6 +20,10 @@ class CampaignCrudTest extends TestCase
      */
     public function test_get_all_campaigns(): void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         Campaign::factory(3)->create();
 
         $response = $this->getJson('api/campaigns');
@@ -31,6 +37,10 @@ class CampaignCrudTest extends TestCase
      */
     public function test_create_campaign() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         $campaign = Campaign::factory(1)->create()->first();
 
         $data = [
@@ -49,7 +59,11 @@ class CampaignCrudTest extends TestCase
      */
     public function test_update_campaign() : void
     {
-        $Campaigns = Campaign::factory(2)->create();
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
+        Campaign::factory(2)->create();
         $campaign = Campaign::factory(1)->create()->first();
 
         $data = [
@@ -69,6 +83,10 @@ class CampaignCrudTest extends TestCase
      */
     public function test_show_campaign() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         $campaign = Campaign::factory(1)->create()->first();
 
         $response = $this->getJson("api/campaigns/$campaign->id");
@@ -83,6 +101,10 @@ class CampaignCrudTest extends TestCase
      */
     public function test_delete_campaign() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         Campaign::factory(1)->create();
         $campaign = Campaign::factory(1)->create()[0]->id;
 

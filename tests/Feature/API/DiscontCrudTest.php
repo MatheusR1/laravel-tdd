@@ -3,9 +3,11 @@ namespace Tests\API\Feature;
 
 use App\Models\Campaign;
 use App\Models\Discont;
+use App\Models\User;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Http\Response;
+use Laravel\Sanctum\Sanctum;
 use Tests\TestCase;
 
 class DiscontCrudTest extends TestCase
@@ -19,6 +21,10 @@ class DiscontCrudTest extends TestCase
      */
     public function test_get_all_disconts(): void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         Campaign::factory(3)->create();
         Discont::factory(3)->create();
 
@@ -33,6 +39,10 @@ class DiscontCrudTest extends TestCase
      */
     public function test_create_discont() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         $Campaign = Campaign::factory(1)->create()->first();
 
         $data = [
@@ -52,6 +62,10 @@ class DiscontCrudTest extends TestCase
      */
     public function test_update_discont() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         $Campaigns = Campaign::factory(2)->create();
         $discont = Discont::factory(1)->create()[0]->id;
 
@@ -73,6 +87,10 @@ class DiscontCrudTest extends TestCase
      */
     public function test_show_discont() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         Campaign::factory(1)->create();
         $discont = Discont::factory(1)->create()[0]->id;
 
@@ -88,6 +106,10 @@ class DiscontCrudTest extends TestCase
      */
     public function test_delete_discont() : void
     {
+        $user = User::factory(3)->create()->random();
+
+        Sanctum::actingAs($user);
+
         Campaign::factory(1)->create();
         $discont = Discont::factory(1)->create()[0]->id;
 

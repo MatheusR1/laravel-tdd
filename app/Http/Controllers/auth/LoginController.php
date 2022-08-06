@@ -16,7 +16,7 @@ class LoginController extends Controller
     */
     public function Login(LoginRequest $request) : JsonResponse
     {
-        if (Auth::attempt($request->all())) {
+        if (Auth::attempt($request->only('email', 'password'))) {
             $token = $request->user()->createToken('auth_token');
 
             $data = ['token' => $token->plainTextToken];
